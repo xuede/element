@@ -1,115 +1,44 @@
-body, html {
-    margin: 0;
-    padding: 0;
-    font-family: 'Proxima Nova', Arial, sans-serif;
-    background: #000;
-}
-
-#intro {
-    text-align: center;
-    max-width: 800px;
-    margin: 20px auto;
-}
-
+/* Anchors the chat container to the bottom and centers it horizontally */
 #chat-container {
-    /* Fix the chat container to the bottom and center it horizontally */
     position: fixed;
-    bottom: 0;
+    top: 62%;
     left: 50%;
-    transform: translateX(-50%);
-    width: 100%;
-    max-width: 800px; /* Set the max-width to match the #intro width */
-    padding: 0 20px; /* Add horizontal padding */
-    box-sizing: border-box;
-}
-}
-
-#chat-output {
-    max-height: 200px;
-    overflow-y: scroll;
-    background: #333;
-    color: #fff;
-    padding: 10px;
-    border: 1px solid #444;
-    margin-bottom: 10px;
-}
-
-#chat-input-wrapper {
+    transform: translate(-50%, -50%);
+    width: 80%; /* Adjust the width of the chat container to 80% of the viewport width */
+    height: 80vh; /* Adjust the height of the chat container to 80% of the viewport height */
+    background: rgba(0, 0, 0, 0.8); /* Semi-transparent background */
     display: flex;
-    justify-content: stretch; /* Ensure elements fill the space */
-    align-items: center; /* Vertically align items in the middle */
-    width: 100%; /* Take up the full width of its parent */
-    padding: 0 20px; /* Add some padding on the sides */
-    box-sizing: border-box; /* Include padding in the width calculation */
+    flex-direction: column;
+    justify-content: space-between; /* Spaces out the chat-output and chat-input-wrapper */
+    box-sizing: border-box;
+    padding: 20px; /* Padding inside the chat container */
 }
 
-#chat-input {
-    flex-grow: 1; /* Allow the input to grow and use available space */
-    margin-right: 10px; /* Space between the input and the button */
-    margin-right: 10px;
-    padding: 10px;
-    border: 1px solid #444;
-    border-radius: 4px;
-    background: #222;
-    color: #fff;
+/* Ensure chat messages are within the bounds of the chat container */
+#chat-output {
+    overflow-y: auto; /* Enables scrolling for overflow content */
+    flex-grow: 1; /* Allows the chat output to grow and fill the space */
+    margin-bottom: 50px; /* Space for the input area */
 }
 
-#send-btn {
-    flex: 0 0 auto; /* Don't grow, don't shrink, auto basis */
-	padding: 10px 20px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-#send-btn:hover {
-    background-color: #0056b3;
-}
-
-.resizer {
-    width: 10px;
-    height: 10px;
-    background-color: gray;
+/* Style the chat input and send button to be at the bottom */
+#chat-input-wrapper {
     position: absolute;
-    left: 0;
-    top: 0;
-    cursor: nwse-resize;
+    bottom: 20px; /* Adjust the bottom position to align with the chat container's bottom */
+    left: 20px; /* Align with the left padding of the chat container */
+    right: 20px; /* Align with the right padding of the chat container */
+    display: flex;
+    width: calc(100% - 40px); /* Full width minus the chat container's padding */
 }
 
-.dots {
-    display: inline-block;
-    width: 1em;
-    text-align: center;
+/* Expand the input field to take available horizontal space */
+#chat-input {
+    flex-grow: 1; /* Allows the input to grow */
+    margin-right: 10px; /* Space between the input and send button */
 }
 
-.dots::before {
-    content: '.';
-    animation: dots 1s steps(5, end) infinite;
-}
-
-@keyframes dots {
-    0%, 20% {
-        color: rgba(0,0,0,0);
-        text-shadow:
-            .25em 0 0 rgba(0,0,0,0),
-            .5em 0 0 rgba(0,0,0,0);
-    }
-    40% {
-        color: black;
-        text-shadow:
-            .25em 0 0 rgba(0,0,0,0),
-            .5em 0 0 rgba(0,0,0,0);
-    }
-    60% {
-        text-shadow:
-            .25em 0 0 black,
-            .5em 0 0 rgba(0,0,0,0);
-    }
-    80%, 100% {
-        text-shadow:
-            .25em 0 0 black,
-            .5em 0 0 black;
-    }
+/* Style the send button */
+#send-btn {
+    white-space: nowrap; /* Keeps the button text on one line */
+    padding: 10px 20px; /* Adequate padding for the button */
 }
