@@ -16,6 +16,25 @@
 	/* Add top property to leave space at the top */
 	top:200px; /* Adjust as needed to fit your header */
 
+ @media (max-width: 600px) {
+  #chat-container {
+    top: 150px; /* Smaller top offset for narrow screens */
+  }
+
+  #chat-output {
+    margin-bottom: 0; /* Remove margin if needed for mobile */
+  }
+
+  #chat-input input, #send-btn {
+    padding: 8px 10px; /* Smaller padding for mobile */
+  }
+}
+
+@media (max-height: 500px) {
+  #chat-container {
+    top: 100px; /* Even smaller top offset for very short screens */
+  }
+}
 
 #chat-output {
     overflow-y: auto; /* Scrollbar as needed */
@@ -32,26 +51,28 @@
 
 /* Expand the input field to take available horizontal space */
 #chat-input {
-    flex-grow: 1; /* Input field takes available space */
-    margin-right: 10px; /* Space between the input and the button */
-    padding: 10px; /* Padding inside the input field */
+  flex-grow: 1; /* Input field takes available space */
+  margin-right: 10px; /* Space between the input and the button */
+  padding: 10px; /* Padding inside the input field */
+}
 }
 
 /* Style the send button */
-##send-btn {
-    padding: 10px 20px; /* Padding inside the button to match input field's height */
+#send-btn {
+  padding: 10px 20px; /* Padding inside the button to match input field's height */
 }
-}
+
 /* Additional styles for scrollbar aesthetics (optional) */
 #chat-output::-webkit-scrollbar {
-    width: 8px;
+  width: 8px;
 }
 
 #chat-output::-webkit-scrollbar-thumb {
-    background: #555;
-    border-radius: 4px;
+  background: #555;
+  border-radius: 4px;
 }
 
 #chat-output::-webkit-scrollbar-track {
-    background: #333;
+  background: #333;
+}
 }
