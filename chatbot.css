@@ -1,52 +1,65 @@
 /* Anchors the chat container to the bottom and centers it horizontally */
 #chat-container {
-    position: fixed;
-    bottom: 0; /* Center vertically */
+    position: fixed; /* Keep it fixed within the viewport */
+    top: 300px; /* Space from the top, adjust as needed */
+    bottom: 25px; /* 25px from the bottom */
     left: 50%; /* Center horizontally */
-    transform: translate(-50%); /* Offset the container by half its width and height */
-    width: 60%; /* Width of the chat container relative to the viewport */
-    height: 75vh; /* Height of the chat container relative to the viewport */
+    transform: translateX(-50%); /* Centering adjustment */
+    width: 60%; /* Width relative to the viewport */
+    max-height: calc(100vh - 50px); /* Adjusted max-height to reduce the container size */
     display: flex;
     flex-direction: column;
-    justify-content: space-between; /* Align the chat-output at the top and chat-input at the bottom */
+    justify-content: flex-end;
     background: rgba(0, 0, 0, 0.8); /* Semi-transparent background */
+    padding: 0 25px 25px 25px; /* Padding 25px from the bottom */
     box-sizing: border-box;
-    padding: 25px; /* Padding inside the chat container */
-    overflow: hidden; /* Ensures that all overflow is hidden */
-    top: 240px; /* Adjust as needed to fit your header */
+    overflow-y: auto; /* Allows scrolling */
+}
+
+@media (max-width: 800px) {
+    #chat-container {
+        top: 10%; /* Adjusted for narrow screens */
+    }
 }
 
 @media (max-width: 600px) {
     #chat-container {
-        top: 150px; /* Smaller top offset for narrow screens */
+        top: 150px; /* Adjusted for very narrow screens */
     }
 }
 
 @media (max-height: 500px) {
     #chat-container {
-        top: 100px; /* Even smaller top offset for very short screens */
+        top: 100px; /* Adjusted for short screens */
     }
 }
 
 #chat-output {
-    overflow-y: auto; /* Scrollbar as needed */
-    flex-grow: 1; /* Take available space for messages */
-    margin-bottom: 10px; /* Space above the input area */
+    flex-grow: 1; /* Allows chat-output to fill the space */
+    overflow-y: auto; /* Ensures scrollability */
+    margin-bottom: 75px; /* Space for chat-input, adjusted from 10px */
 }
+
 
 /* Style the chat input and send button to be at the bottom */
 #chat-input-wrapper {
-    order: 2; /* Ensure input is at the bottom of the flex container */
+    position: absolute; /* Positioned absolutely within the chat-container */
+    bottom: 0; /* Bottom of the chat-container */
+    left: 0; /* Aligns with the left of the chat-container */
+    right: 0; /* Aligns with the right of the chat-container */
+    padding: 10px; /* Padding inside the input wrapper */
     display: flex;
-    padding: 0; /* Remove padding if needed */
+    align-items: center; /* Align items vertically */
 }
+
 
 /* Expand the input field to take available horizontal space */
 #chat-input {
-    flex-grow: 1; /* Input field takes available space */
+    flex-grow: 1; /* Allows input to take available space */
     margin-right: 10px; /* Space between the input and the button */
     padding: 10px; /* Padding inside the input field */
 }
+
 
 /* Style the send button */
 #send-btn {
@@ -67,19 +80,13 @@
     background: #333;
 }
 
-/* Style for the fixed input box */
-.fixed-input {
-    position: fixed;
-    bottom: 80px; /* Adjust this value to control the distance from the bottom */
-    left: 0;
-    width: 100%;
-    height: 40px; /* Set the height as needed */
-    border: 1px solid #ccc; /* Add border or other styles */
-}
+
+/* Style for the top container */
 #top-container {
     display: flex;
     flex-direction: column;
-    align-items: center; /* This centers the child elements horizontally */
-    justify-content: center; /* This centers the child elements vertically */
-    text-align: center; /* This ensures the text inside the elements is centered */
+    align-items: center; /* Centers the child elements horizontally */
+    justify-content: center; /* Centers the child elements vertically */
+    text-align: center; /* Centers the text inside the elements */
+    padding-top: 25px; /* Add padding to ensure content is not covered */
 }
