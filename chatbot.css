@@ -1,11 +1,11 @@
 /* Anchors the chat container to the bottom and centers it horizontally */
 #chat-container {
     position: fixed;
-    bottom: 0;%; /* Center vertically */
+    bottom: 0; /* Center vertically */
     left: 50%; /* Center horizontally */
     transform: translate(-50%); /* Offset the container by half its width and height */
     width: 60%; /* Width of the chat container relative to the viewport */
-    height: 90vh; /* Height of the chat container relative to the viewport */
+    height: 75vh; /* Height of the chat container relative to the viewport */
     display: flex;
     flex-direction: column;
     justify-content: space-between; /* Align the chat-output at the top and chat-input at the bottom */
@@ -13,27 +13,19 @@
     box-sizing: border-box;
     padding: 25px; /* Padding inside the chat container */
     overflow: hidden; /* Ensures that all overflow is hidden */
-	/* Add top property to leave space at the top */
-	top:200px; /* Adjust as needed to fit your header */
+    top: 240px; /* Adjust as needed to fit your header */
+}
 
- @media (max-width: 600px) {
-  #chat-container {
-    top: 150px; /* Smaller top offset for narrow screens */
-  }
-
-  #chat-output {
-    margin-bottom: 0; /* Remove margin if needed for mobile */
-  }
-
-  #chat-input input, #send-btn {
-    padding: 8px 10px; /* Smaller padding for mobile */
-  }
+@media (max-width: 600px) {
+    #chat-container {
+        top: 150px; /* Smaller top offset for narrow screens */
+    }
 }
 
 @media (max-height: 500px) {
-  #chat-container {
-    top: 100px; /* Even smaller top offset for very short screens */
-  }
+    #chat-container {
+        top: 100px; /* Even smaller top offset for very short screens */
+    }
 }
 
 #chat-output {
@@ -51,27 +43,43 @@
 
 /* Expand the input field to take available horizontal space */
 #chat-input {
-  flex-grow: 1; /* Input field takes available space */
-  margin-right: 10px; /* Space between the input and the button */
-  padding: 10px; /* Padding inside the input field */
-}
+    flex-grow: 1; /* Input field takes available space */
+    margin-right: 10px; /* Space between the input and the button */
+    padding: 10px; /* Padding inside the input field */
 }
 
 /* Style the send button */
 #send-btn {
-  padding: 10px 20px; /* Padding inside the button to match input field's height */
+    padding: 10px 20px; /* Padding inside the button to match input field's height */
 }
 
 /* Additional styles for scrollbar aesthetics (optional) */
 #chat-output::-webkit-scrollbar {
-  width: 8px;
+    width: 8px;
 }
 
 #chat-output::-webkit-scrollbar-thumb {
-  background: #555;
-  border-radius: 4px;
+    background: #555;
+    border-radius: 4px;
 }
 
 #chat-output::-webkit-scrollbar-track {
-  background: #333;
+    background: #333;
+}
+
+/* Style for the fixed input box */
+.fixed-input {
+    position: fixed;
+    bottom: 80px; /* Adjust this value to control the distance from the bottom */
+    left: 0;
+    width: 100%;
+    height: 40px; /* Set the height as needed */
+    border: 1px solid #ccc; /* Add border or other styles */
+}
+#top-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* This centers the child elements horizontally */
+    justify-content: center; /* This centers the child elements vertically */
+    text-align: center; /* This ensures the text inside the elements is centered */
 }
