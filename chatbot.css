@@ -5,7 +5,7 @@
     left: 50%; /* Center horizontally */
     transform: translate(-50%); /* Offset the container by half its width and height */
     width: 60%; /* Width of the chat container relative to the viewport */
-    height: 77vh; /* Height of the chat container relative to the viewport */
+    height: 90vh; /* Height of the chat container relative to the viewport */
     display: flex;
     flex-direction: column;
     justify-content: space-between; /* Align the chat-output at the top and chat-input at the bottom */
@@ -74,5 +74,4 @@
 
 #chat-output::-webkit-scrollbar-track {
   background: #333;
-}
 }
