@@ -1,36 +1,40 @@
 /* Anchors the chat container to the bottom and centers it horizontally */
 #chat-container {
     position: fixed; /* Keep it fixed within the viewport */
-    top: 300px; /* Space from the top, adjust as needed */
-    bottom: 25px; /* 25px from the bottom */
-    left: 50%; /* Center horizontally */
-    transform: translateX(-50%); /* Centering adjustment */
-    width: 60%; /* Width relative to the viewport */
+    bottom: 0; /* 0px from the bottom */
+    left: 50%; /* Aligns with the center of the viewport */
+    transform: translateX(-50%); /* Centers the element */
+    width: 100%; /* Width relative to the viewport */
     max-height: calc(100vh - 50px); /* Adjusted max-height to reduce the container size */
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    background: rgba(0, 0, 0, 0.8); /* Semi-transparent background */
+    background: #ffffff; /* White background */
     padding: 0 25px 25px 25px; /* Padding 25px from the bottom */
     box-sizing: border-box;
     overflow-y: auto; /* Allows scrolling */
 }
 
-@media (max-width: 800px) {
-    #chat-container {
-        top: 10%; /* Adjusted for narrow screens */
-    }
-}
-
 @media (max-width: 600px) {
     #chat-container {
-        top: 150px; /* Adjusted for very narrow screens */
+        width: 100%; /* Full width on small screens */
+        height: 50%; /* Adjust height as needed */
+        resize: both; /* Make the chatbox adjustable */
+        overflow: auto; /* Add scrollbars when necessary */
     }
 }
 
-@media (max-height: 500px) {
+@media (min-width: 601px) and (max-width: 1024px) {
     #chat-container {
-        top: 100px; /* Adjusted for short screens */
+        width: 70%; /* Adjust width for medium screens */
+        height: 50%; /* Adjust height as needed */
+    }
+}
+
+@media (min-width: 1025px) {
+    #chat-container {
+        width: 50%; /* Adjust width for large screens */
+        height: 50%; /* Adjust height as needed */
     }
 }
 
@@ -64,6 +68,14 @@
 /* Style the send button */
 #send-btn {
     padding: 10px 20px; /* Padding inside the button to match input field's height */
+    background-color: #007bff; /* Change button color to blue */
+    color: #fff; /* Change button text color to white */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Add border radius */
+}
+
+#send-btn:hover {
+    background-color: #0056b3; /* Darken button color on hover */
 }
 
 /* Additional styles for scrollbar aesthetics (optional) */

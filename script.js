@@ -2,6 +2,8 @@
     // Create chatbot container
     const chatContainer = document.createElement('div');
     chatContainer.id = 'chat-container';
+    chatContainer.style.width = window.innerWidth <= 600 ? '100%' : '50%'; // Adjust width based on screen size
+    chatContainer.style.height = window.innerHeight <= 600 ? '50%' : '50%'; // Adjust height based on screen size
     chatContainer.innerHTML = `
         <div id="chat-output-wrapper">
         <div id="chat-output">

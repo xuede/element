@@ -74,42 +74,7 @@
         }
     });
 
-    const resizer = document.getElementById('resizer');
-    let isResizing = false;
-    let initialX, initialY;
-    
-    resizer.addEventListener('mousedown', function(e) {
-        isResizing = true;
-        initialX = e.clientX;
-        initialY = e.clientY;
-        document.addEventListener('mousemove', handleMouseMove);
-        document.addEventListener('mouseup', function() {
-            isResizing = false;
-            document.removeEventListener('mousemove', handleMouseMove);
-        });
-    });
-    
-    function handleMouseMove(e) {
-        if (isResizing) {
-            const deltaX = initialX - e.clientX;
-            const deltaY = initialY - e.clientY;
-            
-            const newWidth = chatContainer.offsetWidth + deltaX;
-            const newHeight = chatContainer.offsetHeight + deltaY;
-            
-            chatContainer.style.width = newWidth + 'px';
-            chatContainer.style.height = newHeight + 'px';
-            
-            chatContainer.style.right = (parseInt(chatContainer.style.right) + deltaX) + 'px';
-            chatContainer.style.bottom = (parseInt(chatContainer.style.bottom) + deltaY) + 'px';
-            
-            initialX = e.clientX;
-            initialY = e.clientY;
-
-            chatOutputWrapper.style.maxHeight = (newHeight - 60) + 'px';
-            chatOutput.style.maxHeight = (newHeight - 60) + 'px';
-        }
-    }
+    // No changes here
     
 
 })();
